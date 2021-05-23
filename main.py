@@ -1,24 +1,24 @@
 import json
 
 game_name = str("TextRPG")
-
-def register():
-    x = input("WARNING: IF YOU ALREADY HAVE A SAVE FILE, IT WILL BE DELETED TO RE-REGISTER \n ARE YOU SURE YOU WANT THIS? \n\n (y/n)")
-    if x == "y":
-        account = {
+base_account = {
             "id": "0",
             "username": "",
             "password": "",
             "level": 1
         }
+
+def register():
+    x = input("WARNING: IF YOU ALREADY HAVE A SAVE FILE, IT WILL BE DELETED TO RE-REGISTER \n ARE YOU SURE YOU WANT THIS? \n\n (y/n)")
+    if x == "y":
         username = input("Please Register  \n\nUsername: ") 
         password = input("Password: ")
         
-        account["username"] = username
-        account["password"] = password
+        base_account["username"] = username
+        base_account["password"] = password
         
         with open("player_db.json", 'a') as player_db:
-            json.dump(account, player_db)
+            json.dump(base_account, player_db)
         startup()
     else: 
         startup()

@@ -1,4 +1,5 @@
 import json
+import os
 
 game_name = str("TextRPG")
 base_account = {
@@ -8,8 +9,11 @@ base_account = {
             "level": 1
         }
 
+def clear():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
 def register():
-    x = input("WARNING: IF YOU ALREADY HAVE A SAVE FILE, IT WILL BE DELETED TO RE-REGISTER \n ARE YOU SURE YOU WANT THIS? \n\n (y/n)")
+    x = input("WARNING: IF YOU ALREADY HAVE A SAVE FILE, IT WILL BE DELETED TO RE-REGISTER \n ARE YOU SURE YOU WANT THIS? \n\n (y/n) \n")
     if x == "y":
         username = input("Please Register  \n\nUsername: ") 
         password = input("Password: ")
@@ -17,8 +21,10 @@ def register():
         base_account["username"] = username
         base_account["password"] = password
         
+        clear()
+
         with open("player_db.json", 'w') as player_db:
-            json.dump(base_account, player_db)
+            json.dump(base_account, player_db, indent=4)
         startup()
     else: 
         startup()
@@ -34,17 +40,25 @@ def login():
                 count += 1
                 if count == 3: 
                     print("You've run out of attempts")
-                    break #exit
+                    break
                 else:
                     if username == playerdb["username"] and password == playerdb["password"]:
                         print("Welcome, " + playerdb["username"] + " You have successfully logged in")
-                        break #they are in, exit loop
+                        clear()
+                        menu()
+                        break
                     else:
-                        #tell them it is wrong and have them retry, stay in loop
                         print("Incorrect username or password, Please try again. You have " + str(3-count) + " more attempts")
     except FileNotFoundError:
         register()
+        
 
+def menu():
+    with open("player_db.json", "r") as player_db:
+        playerdb = json.load(player_db)
+    print("Welcome to " + game_name + '.')
+    print(playerdb["username"] + ": \n Level " + playerdb["level"] )
+    input("")
 
 def startup():
     x = input("Hello! Welcome to " + game_name + "! \n (1) Login  \n (2) Register  \n")
@@ -52,5 +66,5 @@ def startup():
         login()
     if x == "2":
         register()
-
+    
 startup()

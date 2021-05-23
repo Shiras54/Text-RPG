@@ -17,7 +17,7 @@ def register():
         base_account["username"] = username
         base_account["password"] = password
         
-        with open("player_db.json", 'a') as player_db:
+        with open("player_db.json", 'w') as player_db:
             json.dump(base_account, player_db)
         startup()
     else: 

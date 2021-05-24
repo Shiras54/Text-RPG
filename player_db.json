@@ -1,6 +1,39 @@
 {
-    "id": "0",
-    "username": "Shiras54",
-    "password": "123",
-    "level": 1
+      "id": "0",
+      "username": "Shiras54",
+      "password": "123",
+      "level": 1,
+      "current_exp": 0,
+      "next_level_exp": 10,
+      "items": {
+            "tier_1": {
+                  "wooden_sword": {
+                        "owned": false,
+                        "title": "",
+                        "level": 0,
+                        "current_exp": 0,
+                        "next_level_exp": 10,
+                        "description": "",
+                        "damage": 1,
+                        "type": "sword",
+                        "value": 0,
+                        "attribute": [
+                              "None",
+                              "Fire",
+                              "Water",
+                              "Earth",
+                              "Air",
+                              "Light",
+                              "Dark"
+                        ]
+                  },
+                  "wooden_pickaxe": 0,
+                  "wooden_axe": 0,
+                  "wooden_hoe": 0,
+                  "wooden_wand": 0
+            }
+      },
+      "spells": {
+            "tier_1": {}
+      }
 }

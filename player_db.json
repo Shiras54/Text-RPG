@@ -1,10 +1,23 @@
 {
       "id": "0",
-      "username": "Shiras54",
+      "username": "123",
       "password": "123",
+      "class": "Spellsword",
       "level": 1,
       "current_exp": 0,
       "next_level_exp": 10,
+      "gold": 10,
+      "stat_points": 0,
+      "stats": {
+            "hp": 50,
+            "mp": 50,
+            "strength": 5,
+            "endurance": 5,
+            "vitality": 5,
+            "magic_power": 5,
+            "magic_defense": 5,
+            "magic_energy": 5
+      },
       "items": {
             "tier_1": {
                   "wooden_sword": {
@@ -34,6 +47,11 @@
             }
       },
       "spells": {
-            "tier_1": {}
+            "tier_1": {
+                  "fire_ball": {
+                        "damage": 2,
+                        "mana_cost": 1
+                  }
+            }
       }
 }

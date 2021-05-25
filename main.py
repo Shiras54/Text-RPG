@@ -66,7 +66,7 @@ def load():
 
 def save():
     global current_account
-    with open("player+db.json", "w") as player_db:
+    with open("player_db.json", "w") as player_db:
         json.dump(current_account, player_db, indent=6)
     load()
 
